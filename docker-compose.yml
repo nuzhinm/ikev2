@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  ikev2_strongSwan:
+    container_name: ikev2
+    image: nuzhinm/ikev2
+    ports:
+      - 500:500/udp
+      - 4500:4500/udp
+      
+    privileged: true
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      
+    restart: unless-stopped
