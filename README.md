@@ -9,7 +9,7 @@ Ports **500/udp and 4500/udp** must be open.
 ## How to install
 Download the script and project files
 ````
-git clone https://github.com/nuzhinm/ikev2
+git clone https://github.com/nuzhinm/ikev2.git
 ````
 and set permissions to run the script
 ````
