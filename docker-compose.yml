@@ -1,15 +1,17 @@
-version: '3'
+version: "3.9"
 services:
 
   ikev2_strongSwan:
     container_name: ikev2
-    image: nuzhinm/ikev2
+    image: mn/ikev2
+    environment:
+      - TZ=Europe/Moscow
     ports:
       - 500:500/udp
       - 4500:4500/udp
-      
     privileged: true
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      
+      - ./conf/ipsec.secrets:/etc/ipsec.secrets
+      - ./conf/ipsec.conf:/etc/ipsec.conf
     restart: unless-stopped
