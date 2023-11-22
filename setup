@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 echo
-echo "=== Mikhail Nuzhin IKEv2-setup in Docker ==="
+echo "=== Mikhail Nuzhin setting IKEv2-setup in Docker ==="
 echo
 
 
@@ -90,7 +90,7 @@ conn roadwarrior
   rightsourceip=10.101.0.0/16
   rightsendcert=never
 " > ikev2/conf/ipsec.conf
-
+  
 grep -Fq 'MikhailNuzhin' ikev2/conf/ipsec.secrets || echo "# strongSwan IPsec secrets file
 
 ${VPNHOST} : RSA \"privkey.pem\"
@@ -498,21 +498,23 @@ A bash script to set up strongSwan as a VPN client is attached as vpn-ubuntu-cli
 
 EOF
 
-cd
-
 echo
 echo "--- How to connect ---"
 echo
 echo "Connection instructions can be found in your home directory, '~/ikev2/connect'"
 
+cd
+
 echo
 echo "--- Build dokcaer image ---"
 echo
 
-docker build -t mn/ikev2 -f ~/ikev2/dockerfile .
+docker build -t mn/ikev2 -f ~/ikev2/dockerfile  .
 
 echo
 echo "--- Run docker container ---"
 echo
 
 docker-compose -f ~/ikev2/docker-compose.yml up -d
+
+docker ps -a
