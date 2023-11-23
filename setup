@@ -4,7 +4,6 @@ echo
 echo "=== Mikhail Nuzhin setting IKEv2-setup in Docker ==="
 echo
 
-
 function exit_badly {
   echo "$1"
   exit 1
@@ -515,3 +514,5 @@ echo "--- Run docker container ---"
 echo
 
 docker-compose -f ~/ikev2/docker-compose.yml up -d
+
+docker ps
