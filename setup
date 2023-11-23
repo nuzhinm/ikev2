@@ -98,7 +98,7 @@ ${VPNUSERNAME} : EAP \"${VPNPASSWORD}\"
 " > ikev2/conf/ipsec.secrets
 
 grep -Fq 'MikhailNuzhin' ikev2/bin/run || echo "# Startup file strongSwan
-!/bin/bash
+#!/bin/bash
 
 iptables -P INPUT   ACCEPT
 iptables -P FORWARD ACCEPT
