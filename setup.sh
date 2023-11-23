@@ -516,4 +516,4 @@ echo
 
 docker-compose -f ~/ikev2/docker-compose.yml up -d
 
-docker ps -a
+docker ps
